@@ -1,0 +1,11 @@
+<h1>Hello World</h1>
+
+<!-- Testing connection to VM3 Application Server (flask) -->
+
+<script>
+fetch('/api/')
+  .then(res => res.text())
+  .then(data => console.log(data))
+  .catch(err => console.error("API Error:", err));
+</script>
+

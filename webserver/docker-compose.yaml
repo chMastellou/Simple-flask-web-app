@@ -1,0 +1,16 @@
+services:
+  website:
+    image: nginx:latest
+    container_name: website
+    volumes:
+      - /opt/website/site:/usr/share/nginx/html
+      - /opt/website/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports: 
+      - "80:80"
+    restart: unless-stopped
+    networks: 
+      - services-net
+
+networks:
+  services-net:
+    external: true
