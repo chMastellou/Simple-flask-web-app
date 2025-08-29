@@ -1,0 +1,10 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda2
+UUID=85e3ad9c-b2f5-42f0-be2e-0240987d709c	/         	ext4      	rw,relatime	0 1
+
+# /dev/sda1
+UUID=4053-67CA      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+//192.168.175.130/share	/mnt/share	cifs	credentials=/etc/smb_credentials,iocharset=utf8,uid=1000,gid=1000,file_mode=0770,dir_mode=0770,nounix,noserverino	0 0
