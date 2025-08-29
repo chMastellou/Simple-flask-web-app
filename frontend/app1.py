@@ -5,9 +5,9 @@ app = Flask(__name__)
 
 @app.route("/api")
 def api():
-    # 1️⃣ Connect to PostgreSQL on VM4
+    # 1. Connect to PostgreSQL on backend
     conn = psycopg2.connect(
-        host="192.168.174.129",  # <-- your VM4 IP
+        host="192.168.20.10",  
         dbname="testdb",
         user="testuser",
         password="testpass"
@@ -18,7 +18,7 @@ def api():
     cur.close()
     conn.close()
 
-    # 2️⃣ Read file from Samba share mounted locally
+    # 2️ Read file from Samba share mounted locally
     # E.g., you mounted it at /mnt/share
     with open("/mnt/share/file.txt") as f:
         file_content = f.read()
