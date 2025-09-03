@@ -9,8 +9,8 @@ def api():
     conn = psycopg2.connect(
         host="192.168.20.10",  
         dbname="testdb",
-        user="testuser",
-        password="testpass"
+        user="test_user",
+        password="!Edu1234"
     )
     cur = conn.cursor()
     cur.execute("SELECT info FROM testtable LIMIT 1;")
