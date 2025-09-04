@@ -13,7 +13,7 @@ def api():
         password="!Edu1234"
     )
     cur = conn.cursor()
-    cur.execute("SELECT info FROM testtable LIMIT 1;")
+    cur.execute("SELECT * FROM test_table LIMIT 1;")
     db_result = cur.fetchone()[0]
     cur.close()
     conn.close()
