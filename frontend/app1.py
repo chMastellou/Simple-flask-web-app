@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/api")
 def api():
-    # 1. Connect to PostgreSQL on backend
+    # Connect to PostgreSQL on backend
     conn = psycopg2.connect(
         host="192.168.20.10",  
         dbname="testdb",
@@ -13,14 +13,14 @@ def api():
         password="!Edu1234"
     )
     cur = conn.cursor()
-    cur.execute("SELECT * FROM test_table LIMIT 1;")
+    cur.execute("SELECT content FROM test_table LIMIT 1;")
     db_result = cur.fetchone()[0]
     cur.close()
     conn.close()
 
-    # 2️ Read file from Samba share mounted locally
+    # Read file from Samba share mounted locally
     # E.g., you mounted it at /mnt/share
-    with open("/mnt/share/file.txt") as f:
+    with open("/mnt/secure_share/file.txt") as f:
         file_content = f.read()
 
     return jsonify({
@@ -30,3 +30,4 @@ def api():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
